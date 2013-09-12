@@ -1,4 +1,4 @@
-<%= form_for (@rec),url: {action: "generate"}, remote: => true do |f| %>
+<%= form_for (@rec),url: { action: "generate" },html: { :remote => true } do |f| %>
 <%= f.text_field :product_id %>
 <%= f.submit "Generate" %>
 <% end %>
