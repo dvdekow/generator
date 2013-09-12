@@ -19,6 +19,19 @@ class RecommendationController < ApplicationController
 	@neo = Neography::Rest.new
 
 	def index
+      /respon_with(Recommendation.for(current_user))/
+      @rec = Recommendation.new
+	end
 
+	def new
+
+	end
+
+	def create
+
+	end
+
+	def generate
+      @id_product = params[:product_id]
 	end
 end
