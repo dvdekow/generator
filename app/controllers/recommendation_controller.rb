@@ -16,8 +16,6 @@ class RecommendationController < ApplicationController
 	  config.parser         = MultiJsonParser
 	end
 
-	@neo = Neography::Rest.new
-
 	def index
       /respon_with(Recommendation.for(current_user))/
       @rec = Recommendation.new
@@ -26,12 +24,23 @@ class RecommendationController < ApplicationController
 	def new
 
 	end
-
+ 
 	def create
-
+      recommendation = Recommendation.create(params[:recommendation])
+        if recommendation.valid?
+          respond_with(recommendation, :location => api_v1_recommendation_path(recommendation))
+        else
+          respond_with(recommendation)
+        end
 	end
 
 	def generate
-      @id_product = params[:product_id]
+      @id_product = params[:recommendation][:product_id]
+
+      @neo = Neography::Rest.new
+
+      node1 = @neo.create_node("age" => 31, "name" => "Max")
+	  node2 = @neo.create_node("age" => 33, "name" => "Roel")
+      /take generator algoritma here/
 	end
 end

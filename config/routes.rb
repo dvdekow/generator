@@ -6,6 +6,11 @@ Generator::Application.routes.draw do
 
   match '/generate' => 'recommendation#generate'
 
+  namespace :api do
+    namespace :v1 do
+      resources :recommendations
+    end
+  end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

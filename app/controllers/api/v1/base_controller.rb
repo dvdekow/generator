@@ -1,5 +1,5 @@
-class Api::V1::BaseController < ActionCOntroller::BaseController
-  respond_to :json
+class Api::V1::BaseController < ActionController::Base
+  respond_to :json, :xml
 
   before_filter :authenticate_user
 
@@ -9,6 +9,8 @@ class Api::V1::BaseController < ActionCOntroller::BaseController
     end
 
     def current_user
-      @current_user
+      unless @current_user
+      	respond_with({:error => "Token is invalid."})
+      end
     end
 end
