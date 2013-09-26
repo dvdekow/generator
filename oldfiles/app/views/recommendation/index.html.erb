@@ -1,0 +1,12 @@
+<%= form_for (@rec),url: { action: "generate" },html: { :remote => true } do |f| %>
+<%= f.text_field :product_id %>
+<%= f.submit "Generate" %>
+<% end %>
+
+<div id="result">
+</div>
+
+
+<nav>
+<%= link_to "Sign up", new_user_registration_path %>
+</nav>
