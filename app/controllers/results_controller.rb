@@ -18,9 +18,14 @@ class ResultsController < ApplicationController
 
 	def index
 	 @results = Result.new
+	 @branch = Branch.new
 	end
 
 	def generate
+
+	end
+
+	def makeRelations
 
 	end
 end

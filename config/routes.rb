@@ -1,6 +1,7 @@
 Recommendation::Application.routes.draw do
 
   match '/generate' => 'results#generate'
+  match '/makeRelations' => 'results#makeRelations'
 
   namespace :api do
     namespace :v1 do
